@@ -127,9 +127,8 @@ void example_6() {
   std::cout << "Min value of all tree nodes is " << minValue(a) << std::endl;
 }
 
-void example_7()
-{
-      Node<int> a(3);
+void example_7() {
+  Node<int> a(3);
   Node<int> b(11);
   Node<int> c(4);
   Node<int> d(4);
@@ -142,5 +141,6 @@ void example_7()
   b.m_right = &e;
   c.m_right = &f;
 
-  std::cout << "max root to leaf path sum tree is " << maxRootToLeafPathSum(a) << std::endl;
+  std::cout << "max root to leaf path sum tree is " << maxRootToLeafPathSum(a)
+            << std::endl;
 }
