@@ -25,6 +25,8 @@ template <class T> void depthFirst(const Node<T> &trunk);
 
 template <class T> void breadthFirst(const Node<T> &trunk);
 
+template <class T> bool nodeExist(const Node<T> &trunk, T value_exist);
+
 template <class T> void depthFirstRecursive(const Node<T> &trunk) {
   std::cout << trunk.m_value << "\n";
 
@@ -68,6 +70,23 @@ template <class T> void breadthFirst(const Node<T> &trunk) {
       queue.push(*(current.m_right));
     }
   }
+}
+
+template <class T> bool nodeExist(const Node<T> &trunk, T value_exist) {
+  if (trunk.m_value == value_exist) {
+    return true;
+  }
+  if (trunk.m_left) {
+    if (nodeExist(*trunk.m_left, value_exist)) {
+      return true;
+    }
+  }
+  if (trunk.m_right) {
+    if (nodeExist(*trunk.m_right, value_exist)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 #endif // BASIC_H

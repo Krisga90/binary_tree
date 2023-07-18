@@ -13,13 +13,13 @@
 void example();
 void example_2();
 void example_3();
+void example_4();
 
 
 
 int main() 
 { 
-    // example();
-    example_3();
+    example_4();
     return 0; 
 }
 
@@ -62,7 +62,7 @@ void example_2()
 
 void example_3()
 {
-        Node<char> a('a');
+    Node<char> a('a');
     Node<char> b('b');
     Node<char> c('c');
     Node<char> d('d');
@@ -76,5 +76,24 @@ void example_3()
     c.m_right = &f;
     
     breadthFirst(a);
+}
+
+void example_4()
+{
+    Node<char> a('a');
+    Node<char> b('b');
+    Node<char> c('c');
+    Node<char> d('d');
+    Node<char> e('e');
+    Node<char> f('f');
+
+    a.m_left = &b;
+    a.m_right = &c;
+    b.m_left = &d;
+    b.m_right = &e;
+    c.m_right = &f;
+    
+    std::cout << "f value exist in node " << nodeExist(a, 'f') << std::endl;
+    std::cout << "j value exist in node " << nodeExist(a, 'j') << std::endl;
 }
 
