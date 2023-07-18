@@ -31,6 +31,8 @@ template <class T> int treeSum(const Node<T> &trunk);
 
 template <class T> int minValue(const Node<T> &trunk);
 
+template <class T> int maxRootToLeafPathSum(const Node<T> &trunk);
+
 template <class T> void depthFirstRecursive(const Node<T> &trunk) {
   std::cout << trunk.m_value << "\n";
 
@@ -123,6 +125,27 @@ template <class T> int minValue(const Node<T> &trunk) {
     }
   }
   return min;
+}
+
+template <class T> int maxRootToLeafPathSum(const Node<T> &trunk)
+{
+  T l_path_sum = trunk.m_value;
+  T r_path_sum = trunk.m_value;
+  T temp;
+  if (trunk.m_left) {
+    l_path_sum += maxRootToLeafPathSum(*trunk.m_left);
+    if (trunk.m_right ==  nullptr) {
+      return l_path_sum;
+    }
+  }
+
+  if (trunk.m_right) {
+    r_path_sum += maxRootToLeafPathSum(*trunk.m_right);
+    if (trunk.m_right ==  nullptr) {
+      return r_path_sum;
+    }
+  }
+  return r_path_sum > l_path_sum ? r_path_sum : l_path_sum ;
 }
 
 #endif // BASIC_H

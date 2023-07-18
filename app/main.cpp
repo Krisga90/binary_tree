@@ -16,9 +16,10 @@ void example_3();
 void example_4();
 void example_5();
 void example_6();
+void example_7();
 
 int main() {
-  example_6();
+  example_7();
   return 0;
 }
 
@@ -124,4 +125,22 @@ void example_6() {
   c.m_right = &f;
 
   std::cout << "Min value of all tree nodes is " << minValue(a) << std::endl;
+}
+
+void example_7()
+{
+      Node<int> a(3);
+  Node<int> b(11);
+  Node<int> c(4);
+  Node<int> d(4);
+  Node<int> e(-2);
+  Node<int> f(1);
+
+  a.m_left = &b;
+  a.m_right = &c;
+  b.m_left = &d;
+  b.m_right = &e;
+  c.m_right = &f;
+
+  std::cout << "max root to leaf path sum tree is " << maxRootToLeafPathSum(a) << std::endl;
 }
