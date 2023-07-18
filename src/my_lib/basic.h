@@ -29,6 +29,8 @@ template <class T> bool nodeExist(const Node<T> &trunk, T value_exist);
 
 template <class T> int treeSum(const Node<T> &trunk);
 
+template <class T> int minValue(const Node<T> &trunk);
+
 template <class T> void depthFirstRecursive(const Node<T> &trunk) {
   std::cout << trunk.m_value << "\n";
 
@@ -102,6 +104,25 @@ template <class T> int treeSum(const Node<T> &trunk) {
     sum += treeSum(*trunk.m_right);
   }
   return sum;
+}
+
+template <class T> int minValue(const Node<T> &trunk) {
+  T min = trunk.m_value;
+  T temp;
+  if (trunk.m_left) {
+    temp = minValue(*trunk.m_left);
+    if (temp < min) {
+      min = temp;
+    }
+  }
+
+  if (trunk.m_right) {
+    temp = minValue(*trunk.m_right);
+    if (temp < min) {
+      min = temp;
+    }
+  }
+  return min;
 }
 
 #endif // BASIC_H
