@@ -6,19 +6,20 @@
 #include <sstream>
 #include <stdexcept>
 #include <stack>
+#include <queue>
 
 #include "basic.h"
 
 void example();
 void example_2();
-
+void example_3();
 
 
 
 int main() 
 { 
-    example();
-    example_2();
+    // example();
+    example_3();
     return 0; 
 }
 
@@ -57,5 +58,23 @@ void example_2()
     c.m_right = &f;
     
     depthFirst(a);
+}
+
+void example_3()
+{
+        Node<char> a('a');
+    Node<char> b('b');
+    Node<char> c('c');
+    Node<char> d('d');
+    Node<char> e('e');
+    Node<char> f('f');
+
+    a.m_left = &b;
+    a.m_right = &c;
+    b.m_left = &d;
+    b.m_right = &e;
+    c.m_right = &f;
+    
+    breadthFirst(a);
 }
 
